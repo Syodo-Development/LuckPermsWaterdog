@@ -34,7 +34,7 @@ public class LPWDCommand extends Command {
 					}
 				}
 				
-				sender.sendMessage("�aReloaded all groups and players!");
+				sender.sendMessage("§aReloaded all groups and players!");
 				return true;
 			}
 			
