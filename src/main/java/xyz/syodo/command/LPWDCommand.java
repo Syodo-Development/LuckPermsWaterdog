@@ -1,5 +1,6 @@
 package xyz.syodo.command;
 
+import xyz.syodo.LuckPerms;
 import xyz.syodo.data.Group;
 import xyz.syodo.data.User;
 import dev.waterdog.waterdogpe.ProxyServer;
@@ -8,6 +9,7 @@ import dev.waterdog.waterdogpe.command.CommandSender;
 import dev.waterdog.waterdogpe.command.CommandSettings;
 import dev.waterdog.waterdogpe.player.ProxiedPlayer;
 import dev.waterdog.waterdogpe.utils.types.Permission;
+import xyz.syodo.listener.PlayerListener;
 
 public class LPWDCommand extends Command {
 
@@ -25,15 +27,9 @@ public class LPWDCommand extends Command {
 				
 				Group.reloadGroups();
 				for(ProxiedPlayer player : ProxyServer.getInstance().getPlayers().values()) {
-					User user = new User(player);
-					for(String permission : user.getPermissions()) {
-						if(permission != null)
-							if(!player.hasPermission(permission)) {
-								player.addPermission(new Permission(permission, true));
-							}
-					}
+					PlayerListener.reloadPermissions(player);
 				}
-				
+
 				sender.sendMessage("§aReloaded all groups and players!");
 				return true;
 			}

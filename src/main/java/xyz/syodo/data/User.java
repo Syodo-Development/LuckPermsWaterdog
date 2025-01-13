@@ -15,7 +15,6 @@ public class User {
 	public User(ProxiedPlayer player) {
 		
 		this.name = player.getName();
-		
 		ResultSetList set = SyoSQL.executeQuery("SELECT primary_group FROM LuckPerms.luckperms_players WHERE uuid = ?", player.getUniqueId().toString());
 		ResultSetList userperms = SyoSQL.executeQuery("SELECT permission FROM LuckPerms.luckperms_user_permissions WHERE uuid = ? AND value = 1", player.getUniqueId().toString());
 		if(set.next() ) {
@@ -29,9 +28,9 @@ public class User {
 		} else {
 			this.group = "default";
 		}
-		
+
 		this.permissions.addAll(Group.getGroup(this.group).getPermissions());
-		
+
 	}
 
 	public String getName() {
@@ -40,6 +39,10 @@ public class User {
 	
 	public List<String> getPermissions() {
 		return permissions;
+	}
+
+	public String getGroup() {
+		return group;
 	}
 	
 }

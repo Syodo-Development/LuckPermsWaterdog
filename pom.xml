@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>SocialSystem</groupId>
-    <artifactId>SocialSystem</artifactId>
+    <groupId>LuckPerms</groupId>
+    <artifactId>LuckPerms</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -11,7 +11,7 @@
         <version.syodogpe>2.0.0</version.syodogpe>
     </properties>
     <build>
-        <finalName>SocialSystem</finalName>
+        <finalName>LuckPerms</finalName>
         <defaultGoal>clean install</defaultGoal>
         <plugins>
             <plugin>
@@ -20,21 +20,6 @@
                 <configuration>
                     <source>16</source>
                     <target>16</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.2</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>xyz.syodo.SocialSystem</mainClass>
-                        </manifest>
-                    </archive>
-                    <excludes>
-                        <exclude>lib/**</exclude>
-                    </excludes>
                 </configuration>
             </plugin>
             <plugin>
